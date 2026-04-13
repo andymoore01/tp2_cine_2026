@@ -1,5 +1,12 @@
 @import url(./components/poster.css); /* solo tiene modificado las dimensiones de las img */
+@import url("./components/footer.css");
+@import url("./components/grids.css");
 
+:root {
+    --color-principal: #0a0f2c;
+    --color-neon: #00f0ff;
+    --color-texto: #ffffff;
+}
 /* Paletas de colores que pueden usar: */
 
 /* Paleta 1: */
