@@ -8,81 +8,84 @@
     <link rel="icon" href="../assets/favicon/logo-cine.png" />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
+
   <body>
+
     <header>
       <div>
         <h1>Cine Aurora</h1>
         <img src="../assets/favicon/logo-cine.png" alt="logo-cine-aurora" />
       </div>
-      <div>
-        <nav>
-          <a href="../index.html">Inicio</a>
-          <a href="../pages/estrenos.html">Próximos estrenos</a>
-          <a href="../pages/login.html">Mi perfil</a>
-        </nav>
-      </div>
+
+      <nav>
+        <a href="../index.html">Inicio</a>
+        <a href="../pages/estrenos.html">Próximos estrenos</a>
+        <a href="../pages/login.html">Mi perfil</a>
+      </nav>
     </header>
 
     <main>
-      <section>
-        <div>
-          <img src="../assets/img/poster-1.png" alt="Póster" />
+      <section class="detalle-container">
+
+        <div class="detalle-poster">
+          <img src="../assets/img/poster-1.png" alt="Póster de la película" />
         </div>
-        <div>
-          <div>
-            <h1>Título</h1>
-            <h2>Lorem ipsum, dolor sit.</h2>
+
+        <div class="detalle-info">
+
+          <div class="detalle-header">
+            <h1 class="detalle-titulo">Nombre de la película</h1>
+            <h2 class="detalle-subtitulo">Género de la película</h2>
           </div>
-          <div>
+
+          <div class="detalle-sinopsis">
             <h3>Sinopsis</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-              ullam ipsum corporis quidem, assumenda magni officia recusandae.
-              Tenetur voluptatem architecto, dolores eius, deleniti quam
-              voluptatibus laboriosam ut recusandae animi quisquam!
+              Aca irá la descripción de la película. Este texto se puede
+              cambiar según la película seleccionada desde la página principal.
             </p>
           </div>
-          <div>
-            <h3>Duración</h3>
-            <p>155 minutos</p>
+
+          <div class="detalle-datos">
+            <p><strong>Duración:</strong> 120 minutos</p>
+            <p><strong>Director:</strong> Nombre del director</p>
+            <p><strong>Clasificación:</strong> +13</p>
           </div>
 
-          <div>
-            <h3>Género</h3>
-            <p>Ciencia ficción</p>
+          <div class="detalle-horarios">
+            <h3>Horarios</h3>
+            <div class="horarios-lista">
+              <span>16:00</span>
+              <span>19:00</span>
+              <span>22:00</span>
+            </div>
           </div>
 
-          <div>
-            <h3>Director</h3>
-            <p>John Doe</p>
-          </div>
-
-          <div>
-            <h3>Clasificación</h3>
-            <p>+13</p>
-          </div>
-          <div>
-            <h3>Horarios:</h3>
-            <p>16:00</p>
-            <p>19:00</p>
-            <p>22:00</p>
-          </div>
-          <div>
+          <div class="detalle-rating">
             <p>Puntuación: ★★★★☆</p>
           </div>
+
           <a
             href="#"
-            onclick="
-              alert('Lo sentimos, en este momento no funciona nuestro sistema')
-            "
-            >Comprar entradas</a
+            class="btn btn-comprar"
+            onclick="alert('Lo sentimos, en este momento no funciona nuestro sistema')"
           >
+            Comprar entradas
+          </a>
+
         </div>
       </section>
     </main>
 
-    <footer>
-      <p>&copy; 2026 Cine Aurora - Todos los derechos reservados</p>
+    <footer class="footer">
+      <div class="footer-container">
+        <p>© 2026 Cine Aurora - Todos los derechos reservados</p>
+
+        <div>
+          <a href="#">Contacto</a>
+          <a href="#">Términos</a>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
