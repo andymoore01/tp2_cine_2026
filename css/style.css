@@ -1,33 +1,525 @@
-@import url(./components/poster.css); /* solo tiene modificado las dimensiones de las img */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
-/* Paletas de colores que pueden usar: */
+/* ====================== PALETAS DE COLORES ====================== */
 
-/* Paleta 1: */
-/*:root {
-  --color-fondo: #0f172a;
-  --color-superficie: #1e293b;
-  --color-primario: #e11d48;
-  --color-secundario: #f59e0b;
-  --color-texto: #f8fafc;
-  --color-texto-suave: #94a3b8;
-}*/
+/* Paleta 1: Neon Azul Oscuro (Principal) */
+:root {
+  --theme-1-bg-dark: #0a0e1a;
+  --theme-1-bg-card: #121824;
+  --theme-1-text-primary: #f0f4ff;
+  --theme-1-text-secondary: #8899cc;
+  --theme-1-accent: #00f0ff;
+  --theme-1-accent-hover: #00c4d4;
+  --theme-1-border: #1e2a44;
+  --theme-1-glow: rgba(0, 240, 255, 0.35);
+}
 
-/* Paleta 2: */
-/*:root {
-  --color-fondo: #fff8e7;
-  --color-superficie: #ffe8a3;
-  --color-primario: #e63946;
-  --color-secundario: #ffb703;
-  --color-texto: #1d3557;
-  --color-texto-suave: #457b9d;
-}*/
+/* ====================== VARIABLES POR DEFECTO (Paleta 1 - Neon Azul Oscuro) ====================== */
+:root {
+  /* Colores por defecto (Neon Azul Oscuro) */
+  --bg-dark: var(--theme-1-bg-dark);
+  --bg-card: var(--theme-1-bg-card);
+  --text-primary: var(--theme-1-text-primary);
+  --text-secondary: var(--theme-1-text-secondary);
+  --accent-color: var(--theme-1-accent);
+  --accent-hover: var(--theme-1-accent-hover);
+  --border-color: var(--theme-1-border);
+  --glow-color: var(--theme-1-glow);
 
-/* Paleta 3: */
-/*:root {
-  --color-fondo: #141414;
-  --color-superficie: #1f1f1f;
-  --color-primario: #e50914;
-  --color-secundario: #00b4d8;
-  --color-texto: #ffffff;
-  --color-texto-suave: #b3b3b3;
-}*/
+  /* Espaciado (regla de 4px) */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 16px;
+  --spacing-4: 24px;
+  --spacing-5: 32px;
+  --spacing-6: 48px;
+  --spacing-7: 64px;
+
+  /* Transiciones y bordes */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-smooth: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --border-radius: 8px;
+  --border-radius-lg: 16px;
+}
+
+/* ====================== REGLAS GENERALES ====================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ====================== HEADER & NAV ====================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-4) var(--spacing-6);
+  background-color: rgba(10, 14, 26, 0.95);
+  border-bottom: 2px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.logo span {
+  color: var(--accent-color);
+  text-shadow: 0 0 10px var(--accent-color);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-5);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--accent-color);
+  text-shadow: 0 0 8px var(--accent-color);
+}
+
+/* Subrayado animado */
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(to right, var(--accent-color), #ffffff);
+  transition: width var(--transition-smooth);
+  box-shadow: 0 0 6px var(--accent-color);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ====================== BOTONES ====================== */
+.btn {
+  display: inline-block;
+  padding: var(--spacing-3) var(--spacing-5);
+  background-color: var(--accent-color);
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  box-shadow: 0 0 15px var(--glow-color);
+}
+
+.btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px var(--glow-color);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background: rgba(255,255,255,0.05);
+}
+
+/* ====================== CARDS ====================== */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-color);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6),
+              0 0 30px var(--glow-color);
+}
+
+/* ====================== HERO ====================== */
+.hero-image {
+  box-shadow: 0 20px 50px var(--glow-color);
+  border: 1px solid var(--border-color);
+}
+
+.hero-title span {
+  color: var(--accent-color);
+  text-shadow: 0 0 15px var(--accent-color);
+}
+
+/* ====================== FORMULARIOS ====================== */
+.form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.2);
+}
+
+/* ================= GRID PELICULAS ================= */
+
+main section > div {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 220px);
+
+  justify-content: center;
+
+  gap: 20px;
+
+}
+
+/* ================= IMAGENES ================= */
+
+main section > div img {
+
+  width: 100%;
+
+  height: auto;
+
+}
+
+/* ====================== RESPONSIVE ====================== */
+
+@media (max-width: 768px) {
+
+  main section > div {
+
+    grid-template-columns: repeat(2, 220px);
+
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  main section > div {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
+/* ====================== HEADER FLEX ====================== */
+
+header div:first-child {
+  display: flex;
+
+  align-items: center;
+
+  gap: var(--spacing-3);
+}
+
+header img {
+  width: 50px;
+
+  height: auto;
+}
+
+nav {
+  display: flex;
+
+  gap: var(--spacing-5);
+}
+
+nav a {
+  text-decoration: none;
+
+  color: var(--text-secondary);
+
+  font-weight: 600;
+
+  transition: var(--transition-fast);
+}
+
+nav a:hover {
+  color: var(--accent-color);
+}
+
+/* ====================== REGISTRO ====================== */
+
+.main-registro {
+
+  display: flex;
+
+  justify-content: center;
+
+  padding: var(--spacing-5);
+
+}
+
+.contenedor {
+
+  width: 100%;
+
+  max-width: 400px;
+
+}
+
+.form-registro {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: var(--spacing-3);
+
+}
+
+.campo {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: var(--spacing-1);
+
+}
+
+.extra {
+
+  margin-top: var(--spacing-3);
+
+}
+
+.form-registro input,
+.form-registro select {
+
+  padding: var(--spacing-2);
+
+  border-radius: var(--border-radius);
+
+  border: 1px solid var(--border-color);
+
+  background-color: var(--bg-card);
+
+  color: var(--text-primary);
+
+}
+
+.form-registro input:focus,
+.form-registro select:focus {
+
+  border-color: var(--accent-color);
+
+}
+
+.btn {
+
+  margin-top: var(--spacing-3);
+
+}
+
+/* ====================== PERFIL ====================== */
+
+.main-perfil {
+
+  display: flex;
+
+  justify-content: center;
+
+  padding: var(--spacing-5);
+
+}
+
+.perfil-contenedor {
+
+  width: 100%;
+
+  max-width: 800px;
+
+}
+
+.perfil-info {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: var(--spacing-4);
+
+  margin-bottom: var(--spacing-4);
+
+}
+
+.perfil-info img {
+
+  width: 100px;
+
+  border-radius: 50%;
+
+}
+
+.perfil-datos {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: var(--spacing-1);
+
+}
+
+.peliculas-vistas {
+
+  margin-top: var(--spacing-4);
+
+}
+
+.peliculas-vistas ul {
+
+  margin-top: var(--spacing-2);
+
+  padding-left: var(--spacing-4);
+
+}
+
+.peliculas-vistas li {
+
+  margin-bottom: var(--spacing-2);
+
+}
+
+/* ================= DETALLE PELICULA ================= */
+
+.detalle-container {
+  display: flex;
+  gap: var(--spacing-6);
+  padding: var(--spacing-6);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== POSTER ===== */
+.detalle-poster img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 20px var(--glow-color);
+}
+
+/* ===== INFO ===== */
+.detalle-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+/* ===== TITULOS ===== */
+.detalle-titulo {
+  font-size: 2rem;
+}
+
+.detalle-subtitulo {
+  color: var(--text-secondary);
+}
+
+/* ===== SINOPSIS ===== */
+.detalle-sinopsis p {
+  color: var(--text-secondary);
+}
+
+/* ===== DATOS ===== */
+.detalle-datos p {
+  margin-bottom: var(--spacing-2);
+}
+
+/* ===== HORARIOS ===== */
+.horarios-lista {
+  display: flex;
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+}
+
+.horarios-lista span {
+  padding: var(--spacing-2) var(--spacing-3);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.horarios-lista span:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+/* ===== RATING ===== */
+.detalle-rating {
+  font-size: 1.2rem;
+}
+
+/* ===== BOTON ===== */
+.btn-comprar {
+  width: fit-content;
+  margin-top: var(--spacing-3);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .detalle-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .detalle-info {
+    align-items: center;
+  }
+
+  .horarios-lista {
+    justify-content: center;
+  }
+
+  .detalle-poster img {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .detalle-titulo {
+    font-size: 1.5rem;
+  }
+}
