@@ -1,0 +1,37 @@
+.movie-card {
+  background-color: rgba(17, 24, 39, 0.95);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.movie-card:hover {
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.35);
+  transform: translateY(-6px);
+}
+
+.movie-card__image {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  width: 100%;
+}
+
+.movie-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+}
+
+.movie-card__body h3 {
+  font-size: 1.15rem;
+}
+
+.movie-card__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
