@@ -419,3 +419,109 @@ nav a:hover {
   margin-bottom: var(--spacing-2);
 
 }
+
+
+/* ================= DETALLE PELICULA ================= */
+
+.detalle-container {
+  display: flex;
+  gap: var(--spacing-6);
+  padding: var(--spacing-6);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== POSTER ===== */
+.detalle-poster img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 20px var(--glow-color);
+}
+
+/* ===== INFO ===== */
+.detalle-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+/* ===== TITULOS ===== */
+.detalle-titulo {
+  font-size: 2rem;
+}
+
+.detalle-subtitulo {
+  color: var(--text-secondary);
+}
+
+/* ===== SINOPSIS ===== */
+.detalle-sinopsis p {
+  color: var(--text-secondary);
+}
+
+/* ===== DATOS ===== */
+.detalle-datos p {
+  margin-bottom: var(--spacing-2);
+}
+
+/* ===== HORARIOS ===== */
+.horarios-lista {
+  display: flex;
+  gap: var(--spacing-3);
+  flex-wrap: wrap;
+}
+
+.horarios-lista span {
+  padding: var(--spacing-2) var(--spacing-3);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.horarios-lista span:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+/* ===== RATING ===== */
+.detalle-rating {
+  font-size: 1.2rem;
+}
+
+/* ===== BOTON ===== */
+.btn-comprar {
+  width: fit-content;
+  margin-top: var(--spacing-3);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .detalle-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .detalle-info {
+    align-items: center;
+  }
+
+  .horarios-lista {
+    justify-content: center;
+  }
+
+  .detalle-poster img {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .detalle-titulo {
+    font-size: 1.5rem;
+  }
+}
+=======
